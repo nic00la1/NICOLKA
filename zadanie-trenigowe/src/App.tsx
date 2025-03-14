@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer, useMemo } from 'react';
 
 // Custom hook to log render count
 function useRenderCount() {
   const renderCount = React.useRef(0);
-  useEffect(() => {
+  useMemo(() => {
     renderCount.current += 1;
     console.log(`Render count: ${renderCount.current}`);
-  });
+  },[renderCount.current]);
 }
 
 // ShowAll component
